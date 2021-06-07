@@ -4,6 +4,11 @@ import sys, os
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
+import logging
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+
 TOKEN = os.environ.get("TOKEN")
 API_KEY = os.environ.get("API_KEY")
 API_HASH = os.environ.get("API_HASH")
@@ -17,6 +22,10 @@ except:
 
 CHROME = "/app/.apt/usr/bin/google-chrome"
 WEBDRIVER = "/app/.chromedriver/bin/chromedriver"
+
+@tbot.on(events.NewMessage(pattern="^/start ?(.*)"))
+async def carbon(event):
+ await event.reply("hello")
 
 @tbot.on(events.NewMessage(pattern="^/carbon ?(.*)"))
 async def carbon(event):
