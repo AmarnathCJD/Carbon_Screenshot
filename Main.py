@@ -8,7 +8,6 @@ import logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
-print (6)
 TOKEN = os.environ.get("TOKEN")
 API_KEY = os.environ.get("API_KEY")
 API_HASH = os.environ.get("API_HASH")
@@ -20,17 +19,16 @@ try:
 except:
  sys.exit()
 
-tbot.run_until_disconnected()
-
 CHROME = "/app/.apt/usr/bin/google-chrome"
 WEBDRIVER = "/app/.chromedriver/bin/chromedriver"
 
-@tbot.on(events.NewMessage(pattern="^/start ?(.*)"))
+@tbot.on(events.NewMessage(pattern="start ?(.*)"))
 async def carbon(event):
  await event.reply("hello")
 
-@tbot.on(events.NewMessage(pattern="^/carbon ?(.*)"))
+@tbot.on(events.NewMessage(pattern="carbon ?(.*)"))
 async def carbon(event):
+ await event.reply("hi")
  try:
     code = event.text.split(None, 1)[1]
     CARBON = "https://carbon.now.sh/?bg=rgba(239%2C40%2C44%2C1)&t=one-light&wt=none&l=application%2Ftypescript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=143%25&si=false&es=2x&wm=false&code={code}"
@@ -62,3 +60,5 @@ async def carbon(event):
     await event.reply(file="carbon.png")
  except Exception as e:
   await event.reply(str(e))
+
+tbot.run_until_disconnected()
