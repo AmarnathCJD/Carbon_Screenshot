@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
-
+print (6)
 TOKEN = os.environ.get("TOKEN")
 API_KEY = os.environ.get("API_KEY")
 API_HASH = os.environ.get("API_HASH")
