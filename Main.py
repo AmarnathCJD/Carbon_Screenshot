@@ -1,4 +1,4 @@
-from telethon import TelegramClient
+from telethon import TelegramClient, events
 import sys, os
 
 from selenium.webdriver.chrome.options import Options
@@ -20,6 +20,7 @@ WEBDRIVER = "/app/.chromedriver/bin/chromedriver"
 
 @tbot.on(events.NewMessage(pattern="^/carbon ?(.*)"))
 async def carbon(event):
+ try:
     code = event.text.split(None, 1)[1]
     CARBON = "https://carbon.now.sh/?bg=rgba(239%2C40%2C44%2C1)&t=one-light&wt=none&l=application%2Ftypescript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=143%25&si=false&es=2x&wm=false&code={code}"
     url = CARBON.format(code=code, lang="en")
@@ -35,6 +36,7 @@ async def carbon(event):
     driver = webdriver.Chrome(
         executable_path=WEBDRIVER,
         options=chrome_options)
+    print("k")
     driver.get(url)
     driver.command_executor._commands["send_command"] = (
         "POST",
@@ -47,3 +49,5 @@ async def carbon(event):
     command_result = driver.execute("send_command", params)
     driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
     await event.reply(file="carbon.png")
+ except Exception as e:
+  await event.reply(str(e))
