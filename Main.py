@@ -20,6 +20,8 @@ try:
 except:
  sys.exit()
 
+tbot.run_until_disconnected()
+
 CHROME = "/app/.apt/usr/bin/google-chrome"
 WEBDRIVER = "/app/.chromedriver/bin/chromedriver"
 
