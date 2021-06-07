@@ -1,0 +1,52 @@
+{
+      "name": "Evelyn Chrome_Addon",
+      "description": "carbon + webss",
+      "logo": "https://telegra.ph/file/e6159adf456eb9ef96298.jpg",
+      "keywords": [
+         "Telethon",
+         "Telegram",
+         "Group",
+         "manager",
+         "Evelyn"
+      ],   
+   "repository": "https://github.com/Amarnathcdj/Evelyn",
+   "addons": [
+      {
+         "options": {
+            "version": "12"
+         },
+         "plan": "heroku-postgresql"
+      }
+   ],
+   "env": {
+      "TOKEN": {
+         "description": "Your bot token. Get one from @BotFather duh",
+         "required": true,
+         "value": ""
+      },
+      "API_KEY": {
+         "description": "Get API_KEY from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "OWNER_ID": {
+         "description": "Your user ID as an integer.",
+         "required": true,
+         "value": ""
+      }
+   },
+   "keywords": [
+      "telegram",
+      "Telethon",
+      "group",
+      "manager",
+      "Evelyn"
+   ],
+   "name": "Evelyn Chrome_Addon",
+   "repository": "https://github.com/Amarnathcdj/Evelyn"
+}
