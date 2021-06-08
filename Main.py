@@ -19,6 +19,8 @@ try:
 except:
  sys.exit()
 
+tbot.run_until_disconnected()
+
 CHROME = "/app/.apt/usr/bin/google-chrome"
 WEBDRIVER = "/app/.chromedriver/bin/chromedriver"
 
@@ -61,4 +63,4 @@ async def carbon(event):
  except Exception as e:
   await event.reply(str(e))
 
-tbot.run_until_disconnected()
+
